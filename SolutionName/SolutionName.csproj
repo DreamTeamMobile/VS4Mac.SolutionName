@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="..\packages\MonoDevelop.Addins.0.4.1\build\MonoDevelop.Addins.props" Condition="Exists('..\packages\MonoDevelop.Addins.0.4.1\build\MonoDevelop.Addins.props')" />
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProjectGuid>{896915E2-A5FE-4593-BA58-00C04F79EFBC}</ProjectGuid>
+		<ProjectTypeGuids>{86F6BF2A-E449-4B3E-813B-9ACC37E5545F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+		<OutputType>Library</OutputType>
+		<RootNamespace>DT.VS4Mac.SolutionName</RootNamespace>
+		<AssemblyName>DT.VS4Mac.SolutionName</AssemblyName>
+		<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>false</DebugSymbols>
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\Debug</OutputPath>
+		<DefineConstants>DEBUG;</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<Optimize>true</Optimize>
+		<OutputPath>bin\Release</OutputPath>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+  <ItemGroup>
+		<Reference Include="MonoDevelop.Ide">
+			<HintPath>..\lib\MonoDevelop.Ide.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="MonoDevelop.Core">
+			<HintPath>..\lib\MonoDevelop.Core.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Mono.Addins">
+			<HintPath>..\lib\Mono.Addins.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Properties\AddinInfo.cs" />
+		<Compile Include="ShowSolutionName.cs" />
+		<Compile Include="StartupHandler.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Properties\Manifest.addin.xml" />
+	</ItemGroup>
+	<ItemGroup>
+		<AddinReference Include="MonoDevelop.MacPlatform" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="packages.config" />
+	</ItemGroup>
+	<Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+	<Import Project="..\packages\MonoDevelop.Addins.0.4.1\build\MonoDevelop.Addins.targets" Condition="Exists('..\packages\MonoDevelop.Addins.0.4.1\build\MonoDevelop.Addins.targets')" />
+</Project>

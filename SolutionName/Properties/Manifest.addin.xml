@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionModel>
+	<Runtime>
+		<Import assembly="DT.VS4Mac.SolutionName.dll" />
+	</Runtime>
+	<Extension path="/MonoDevelop/Ide/StartupHandlers">
+		<Class class="DT.VS4Mac.SolutionName.StartupHandler" />
+	</Extension>
+</ExtensionModel>
