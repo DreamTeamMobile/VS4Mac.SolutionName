@@ -5,7 +5,7 @@ using Mono.Addins.Description;
 [assembly: Addin(
     "DT.VS4Mac.SolutionName",
     Namespace = "DT.VS4Mac.SolutionName",
-    Version = "1.0"
+    Version = "1.1"
 )]
 
 [assembly: AddinName("DT.VS4Mac.SolutionName")]
@@ -21,4 +21,4 @@ using Mono.Addins.Description;
 [assembly: AssemblyCopyright("DreamTeam Mobile, LLC")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.1.*")]

@@ -70,17 +70,20 @@ namespace DT.VS4Mac.SolutionName
         {
             if (!string.IsNullOrWhiteSpace(name))
             {
-                const float margin = 5;
+                const float margin = 4;
                 NSString text = (NSString)name;
+                var paragraphStyle = (NSParagraphStyle)NSParagraphStyle.DefaultParagraphStyle.MutableCopy();
+                paragraphStyle.Alignment = NSTextAlignment.Center;
                 var attributes = new NSStringAttributes()
                 {
-                    Font = NSFont.SystemFontOfSize(16),
+                    Font = NSFont.SystemFontOfSize(19, NSFontWeight.Regular),
                     ForegroundColor = NSColor.White,
-                    ParagraphStyle = NSParagraphStyle.DefaultParagraphStyle,
+                    ParagraphStyle = paragraphStyle,
                 };
                 var textRect = new CoreGraphics.CGSize(_defaultImage.Size.Width - margin * 2, _defaultImage.Size.Height - 2 * margin);
                 var rect = text.BoundingRectWithSize(textRect, NSStringDrawingOptions.UsesLineFragmentOrigin, attributes.Dictionary);
-                rect.Offset(margin, margin);
+                var centerAdjustment = _defaultImage.Size.Width - rect.Width - 2 * margin;
+                rect.Offset(margin + centerAdjustment / 2, margin);
                 var brandedImage = NSImage.ImageWithSize(_defaultImage.Size, false, (dstRect) =>
                 {
                     _defaultImage.Draw(dstRect);
