@@ -22,3 +22,6 @@ using Mono.Addins.Description;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyVersion("1.1.*")]
+
+[assembly: AddinDependency("::MonoDevelop.Core", MonoDevelop.BuildInfo.Version)]
+[assembly: AddinDependency("::MonoDevelop.Ide", MonoDevelop.BuildInfo.Version)]
