@@ -7,24 +7,22 @@ Helps navigating between multiple projects.
 
 ### Preview
 
-<img src="Meta/screenshot.png?raw=true" width="1024" />
-
-
 <img src="Meta/large-screenshot.png?raw=true" width="1024" />
+
+More screenshots [here](Meta).
 
 #### Download
 
-Download .mpack file from [Releases](https://github.com/DreamTeamMobile/VS4Mac.SolutionName/releases/tag/v1.1) 
+Download `.mpack` file from [Releases](https://github.com/DreamTeamMobile/VS4Mac.SolutionName/releases/)
 
-Then install it in Visual Studio for Mac -> Extensions.. -> Install from file
-
+Then install it in **Visual Studio for Mac > Extensions... > Install from file...**
 
 #### Other notes
 
-To update .mpack file, update version, compile in Release and then run:	
+To update `.mpack` file, update version:
 
-`mono /Applications/Visual\ Studio.app/Contents/Resources/lib/monodevelop/bin/vstool.exe setup pack SolutionName/bin/Release/DT.VS4Mac.SolutionName.dll`
-
+1. Compile in Release
+2. Run bash script: `pack.sh`
 
 #### Helpful links:
 
