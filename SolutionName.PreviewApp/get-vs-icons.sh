@@ -6,17 +6,17 @@ TMP_FOLDER_NAME="tmp_old_icons"
 # cleanup
 rm -rf "$TMP_FOLDER_NAME"
 
-# copy VS icons:
+# copy VS icons
 cp "$VS_ICONS_PATH" VisualStudio.icns
 #cp /Applications/Android\ Studio.app/Contents/Resources/studio.icns VisualStudio.icns
 
-# split icons:
+# split icons
 iconutil --convert iconset VisualStudio.icns
 
-# backup previous:
+# backup previous
 mkdir "$TMP_FOLDER_NAME" && cp Assets.xcassets/AppIcon.appiconset/* "$TMP_FOLDER_NAME"
 
-# set to app:
+# set to app
 cp -rf VisualStudio.iconset/* Assets.xcassets/AppIcon.appiconset/
 
 # cleanup
