@@ -24,6 +24,14 @@ To update `.mpack` file, update version:
 1. Compile in Release
 2. Run bash script: `pack.sh`
 
+To fast apply any changes to this extension you can follow these steps:
+
+1. Add any changes to `SolutionName/SolutionNameRenderer.cs` to change app icon view;
+2. Run **SolutionName.PreviewApp** (macOS app);
+3. When VS4Mac will update application icon you can update new app icon for *PreviewApp* via script: `SolutionName/SolutionName.PreviewApp/get-vs-icons.sh`
+
+> **IMPORTANT**: Changes in `SolutionNameRenderer` are shared with extension logic.
+
 #### Helpful links:
 
 https://blog.lextudio.com/how-to-write-add-ins-of-visual-studio-for-mac-ee6113db5ddf

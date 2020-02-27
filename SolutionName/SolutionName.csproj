@@ -27,6 +27,7 @@
 	<ItemGroup>
 		<Compile Include="Properties\AddinInfo.cs" />
 		<Compile Include="ShowSolutionName.cs" />
+		<Compile Include="SolutionNameRenderer.cs" />
 		<Compile Include="StartupHandler.cs" />
 	</ItemGroup>
 	<ItemGroup>
