@@ -22,3 +22,4 @@ cp -rf VisualStudio.iconset/* Assets.xcassets/AppIcon.appiconset/
 # cleanup
 rm -rf VisualStudio.icns
 rm -rf VisualStudio.iconset
+rm -rf "$TMP_FOLDER_NAME"
