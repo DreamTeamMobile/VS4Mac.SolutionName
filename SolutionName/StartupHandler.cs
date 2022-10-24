@@ -18,6 +18,4 @@ namespace DT.VS4Mac.SolutionName
             }
         }
     }
-
-
 }

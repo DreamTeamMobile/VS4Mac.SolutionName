@@ -11,3 +11,4 @@ using Mono.Addins.Description;
 [assembly: AddinCategory("IDE extensions")]
 [assembly: AddinDescription("Shows solution name in Mac app switcher and doc")]
 [assembly: AddinAuthor("DreamTeam Mobile, LLC")]
+[assembly: AddinUrl("https://github.com/DreamTeamMobile/VS4Mac.SolutionName")]
