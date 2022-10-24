@@ -4,7 +4,7 @@ using Mono.Addins.Description;
 [assembly: Addin(
     "DT.VS4Mac.SolutionName",
     Namespace = "DT.VS4Mac.SolutionName",
-    Version = "1.2"
+    Version = "1.3"
 )]
 
 [assembly: AddinName("DT.VS4Mac.SolutionName")]
