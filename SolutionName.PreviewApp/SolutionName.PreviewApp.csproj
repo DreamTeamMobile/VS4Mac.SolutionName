@@ -6,9 +6,6 @@
 		<AssemblyName>DT.VS4Mac.SolutionName.PreviewApp</AssemblyName>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.VisualStudioMac.Sdk" Version="17.0.0" />
-	</ItemGroup>
-	<ItemGroup>
 		<Compile Include="..\SolutionName\SolutionNameRenderer.cs">
 			<Link>SolutionNameRenderer.cs</Link>
 		</Compile>
