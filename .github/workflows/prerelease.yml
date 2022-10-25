@@ -1,0 +1,69 @@
+name: build a pre-release pack
+on:
+  push:
+    branches:
+      - 'preview/**'
+
+jobs:
+  VS4MacBuild:
+      name: Build VS for Mac extension
+      runs-on: macos-latest
+      steps:
+      - uses: actions/checkout@v3
+        with:
+          lfs: 'true'
+      - name: Set default Xamarin SDK versions
+        run: |
+          $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --android=12.2
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+          dotnet-quality: 'ga'
+      - name: Download .NET workloads
+        run: |
+          cd SolutionName
+          dotnet workload restore
+          cd ..
+      - name: Generate versions
+        uses: HardNorth/github-version-generate@v1.3.0
+        with:
+          version-source: file
+          version-file: SolutionName/Properties/AddinInfo.cs
+          version-file-extraction-pattern: '(?<=Version = ").+(?=")'
+      - name: Add SHORT_SHA env property with commit short sha
+        run: echo "SHORT_SHA=`echo ${{ github.sha }} | cut -c1-8`" >> $GITHUB_ENV
+      - name: Dump all envs
+        run: |
+            echo ${{ env.NEXT_VERSION }}
+            echo ${{ env.RELEASE_VERSION }}
+            echo ${{ env.NEXT_RELEASE_VERSION }}
+            echo ${{ github.sha }}
+            echo $SHORT_SHA
+            echo ${{ env.SHORT_SHA }}
+            echo ${{ env.RELEASE_VERSION }}-preview-${{ env.SHORT_SHA }}
+      # - name: Update version in the files
+      #   uses: datamonsters/replace-action@v2
+      #   with:
+      #     files: 'SolutionName/SolutionName.csproj'
+      #     replacements: '${{ env.RELEASE_VERSION }}=${{ env.RELEASE_VERSION }}-preview-${{ env.SHORT_SHA }}'   
+      - name: Build and pack extension x64
+        run: |
+          set +x        
+          cd SolutionName
+          dotnet build --runtime osx.12-x64 --configuration Release /p:CreatePackage=true
+          ls -la .
+          ls -la bin/Release/net6.0-macos/osx.12-x64/
+      - name: Archive extension artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: VS4Mac${{ env.RELEASE_VERSION }}.${{ env.SHORT_SHA }}.x64.mpack
+          path: |
+            SolutionName/bin/Release/net6.0-macos/osx.12-x64/*.mpack        
+      # - name: Build and pack extension ARM
+      #   run: |
+      #     cd SolutionName
+      #     dotnet build --runtime osx.12-arm --configuration Release
+      #     DLL_ARM_PATH="$GITHUB_WORKSPACE/SolutionName/bin/Release/net6.0-macos/osx.12-arm/DT.VS4Mac.SolutionName.dll"
+      #     OUTPUT_PATH="$GITHUB_WORKSPACE/Releases/Temp"
+      #     cd ..
+      #     /Applications/Visual\ Studio.app/Contents/MacOS/vstool --verbose setup pack $DLL_ARM_PATH -d:$OUTPUT_PATH
