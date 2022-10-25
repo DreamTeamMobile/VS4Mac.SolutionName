@@ -5,11 +5,19 @@ This extension shows current solution name in the Visual Studio for Mac dock and
 
 Helps navigating between multiple projects.
 
-### Preview
+### How it looks
 
 <img src="Meta/large-screenshot.png?raw=true" width="1024" />
 
 More screenshots [here](Meta).
+
+
+### Preview builds
+
+The repo now has Github actions configured to build each commit in `preview/*` branches and pack an extension and attach it to the action job.
+
+This should help making minor changes and ensure that the package is built from the actual Github source.
+
 
 #### Download
 
@@ -17,7 +25,7 @@ Download `.mpack` file from [Releases](https://github.com/DreamTeamMobile/VS4Mac
 
 Then install it in **Visual Studio for Mac > Extensions... > Install from file...**
 
-#### Other notes
+#### Other notes 
 
 To update `.mpack` file, update version:
 
@@ -31,6 +39,7 @@ To fast apply any changes to this extension you can follow these steps:
 3. When VS4Mac will update application icon you can update new app icon for *PreviewApp* via script: `SolutionName/SolutionName.PreviewApp/get-vs-icons.sh`
 
 > **IMPORTANT**: Changes in `SolutionNameRenderer` are shared with extension logic.
+
 
 #### Helpful links:
 
