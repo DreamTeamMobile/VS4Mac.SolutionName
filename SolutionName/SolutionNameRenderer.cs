@@ -18,7 +18,7 @@ namespace DT.VS4Mac.SolutionName
             var text = (NSString)name;
 
             // setup text styles
-            var paragraphStyle = (NSParagraphStyle)NSParagraphStyle.DefaultParagraphStyle.MutableCopy();
+            var paragraphStyle = (NSParagraphStyle)NSParagraphStyle.Default.MutableCopy();
             paragraphStyle.Alignment = NSTextAlignment.Center;
             var attributes = new NSStringAttributes
             {
@@ -49,7 +49,7 @@ namespace DT.VS4Mac.SolutionName
         {
             var backgroundColor = NSColor.FromRgba(50, 50, 50, 240).CGColor;
             var borderColor = NSColor.FromRgba(100, 100, 100, 240).CGColor;
-            nfloat radius = 6;
+            float radius = 6;
 
             var context = NSGraphicsContext.CurrentContext.CGContext;
             context.SaveState();
